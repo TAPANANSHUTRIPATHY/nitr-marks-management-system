@@ -36,6 +36,7 @@ const Students = () => {
 
   const openCreate = () => {
     setEditingStudent(null);
+    setError('');
     setForm({ rollNumber: '', name: '', email: '', department: '', currentSemester: 1, sessionId: sessions[0]?.id || '' });
     setShowModal(true);
   };

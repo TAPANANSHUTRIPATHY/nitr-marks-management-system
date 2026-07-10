@@ -1,5 +1,7 @@
 package com.nitrourkela.marks.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.util.UUID;
 
@@ -27,6 +29,7 @@ public class Student {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "session_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private AcademicSession session;
 
     // Constructors
@@ -62,4 +65,9 @@ public class Student {
 
     public AcademicSession getSession() { return session; }
     public void setSession(AcademicSession session) { this.session = session; }
+
+    @JsonProperty("sessionId")
+    public UUID getSessionId() {
+        return session != null ? session.getId() : null;
+    }
 }
