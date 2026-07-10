@@ -1,10 +1,10 @@
 import axiosClient from './axiosClient';
 
-export const getMarks = (semesterSubjectId, section) =>
-  axiosClient.get('/api/marks', { params: { semesterSubjectId, section } });
-export const batchSaveMarks = (marksArray) =>
-  axiosClient.put('/api/marks/batch', marksArray);
+export const getMarks = (semesterSubjectId) =>
+  axiosClient.get(`/api/marks/${semesterSubjectId}`);
+export const batchSaveMarks = (semesterSubjectId, marksArray) =>
+  axiosClient.put(`/api/marks/${semesterSubjectId}/batch`, marksArray);
 export const submitMarks = (semesterSubjectId) =>
-  axiosClient.post('/api/marks/submit', { semesterSubjectId });
+  axiosClient.post(`/api/marks/${semesterSubjectId}/submit`);
 export const lockMarks = (semesterSubjectId) =>
-  axiosClient.post('/api/marks/lock', { semesterSubjectId });
+  axiosClient.post(`/api/marks/${semesterSubjectId}/lock`);

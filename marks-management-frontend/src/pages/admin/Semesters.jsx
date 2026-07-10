@@ -62,7 +62,7 @@ const Semesters = () => {
       const mappedIds = new Set((res.data || []).map(ss => ss.subject?.id).filter(Boolean));
       setMappedSubjectIds(mappedIds);
       setShowMappingModal(true);
-    } catch {
+    } catch (err) {
       alert('Failed to load mapped subjects');
     } finally {
       setMappingSaving(false);

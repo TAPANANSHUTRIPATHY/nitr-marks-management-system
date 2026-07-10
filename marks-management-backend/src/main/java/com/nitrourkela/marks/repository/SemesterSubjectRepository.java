@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Repository
 public interface SemesterSubjectRepository extends JpaRepository<SemesterSubject, UUID> {
-    @Query("SELECT s FROM SemesterSubject s WHERE s.semester.id = :semesterId")
+    @Query("SELECT s FROM SemesterSubject s JOIN FETCH s.subject WHERE s.semester.id = :semesterId")
     List<SemesterSubject> findBySemesterId(@Param("semesterId") UUID semesterId);
 
     @Query("SELECT s FROM SemesterSubject s WHERE s.semester.id = :semesterId AND s.subject.id = :subjectId")

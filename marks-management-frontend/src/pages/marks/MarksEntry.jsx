@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Save, Lock, Send, ChevronDown, AlertCircle } from 'lucide-react';
 import { getSemesters } from '../../api/semesterApi';
 import { getSubjectsForSemester } from '../../api/semesterApi';
-import { getStudents } from '../../api/studentApi';
 import { getMarks, batchSaveMarks, submitMarks, lockMarks } from '../../api/marksApi';
 import { calculateGrade, getGradeColor } from '../../utils/grading';
 import '../../styles/pages/MarksEntry.css';
@@ -60,33 +59,38 @@ const MarksEntry = () => {
     setLoading(true);
     setError('');
     try {
-      const [stuRes, marksRes] = await Promise.all([
-        getStudents(),
-        getMarks(semSub.id)
-      ]);
-      setStudents(stuRes.data);
+      const marksRes = await getMarks(semSub.id);
+      const rows = marksRes.data || [];
+
+      setStudents(rows.map(m => ({
+        id: m.studentId,
+        rollNumber: m.rollNumber,
+        name: m.studentName,
+        department: m.department,
+      })));
+
       const mMap = {};
-      (marksRes.data || []).forEach(m => {
+      rows.forEach(m => {
         mMap[m.studentId] = m;
       });
       setMarksMap(mMap);
 
       const initLocal = {};
-      stuRes.data.forEach(s => {
-        const existing = mMap[s.id];
-        initLocal[s.id] = {
-          preMid: existing?.preMidMarks ?? '',
-          postMid: existing?.postMidMarks ?? '',
+      rows.forEach(m => {
+        initLocal[m.studentId] = {
+          preMid: m.preMidMarks ?? '',
+          postMid: m.postMidMarks ?? '',
         };
       });
       setLocalMarks(initLocal);
 
-      const statuses = Object.values(mMap).map(m => m.status);
+      const statuses = rows.map(m => m.status);
       if (statuses.some(st => st === 'LOCKED')) setStatus('LOCKED');
       else if (statuses.some(st => st === 'SUBMITTED')) setStatus('SUBMITTED');
       else setStatus('DRAFT');
     } catch (err) {
-      setError('Failed to load marks');
+      setStudents([]);
+      setError(err.response?.data?.message || 'Failed to load marks');
     } finally {
       setLoading(false);
     }
@@ -143,13 +147,12 @@ const MarksEntry = () => {
     try {
       const marksArray = students.map(s => ({
         studentId: s.id,
-        semesterSubjectId: selectedSemSubject.id,
         preMidMarks: localMarks[s.id]?.preMid !== '' && localMarks[s.id]?.preMid !== undefined
           ? parseFloat(localMarks[s.id].preMid) : null,
         postMidMarks: localMarks[s.id]?.postMid !== '' && localMarks[s.id]?.postMid !== undefined
           ? parseFloat(localMarks[s.id].postMid) : null,
       }));
-      await batchSaveMarks(marksArray);
+      await batchSaveMarks(selectedSemSubject.id, marksArray);
       showSuccess('Marks saved successfully as Draft.');
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to save marks');
@@ -362,7 +365,7 @@ const MarksEntry = () => {
         <div className="empty-state glass-card">
           <AlertCircle size={48} />
           <h3>No Students Found</h3>
-          <p>Add students to this session and semester to enter marks.</p>
+          <p>No students are enrolled in this session and semester. Add students with matching session and semester number first.</p>
         </div>
       ) : (
         <div className="marks-placeholder glass-card">
