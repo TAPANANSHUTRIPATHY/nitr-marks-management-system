@@ -1,0 +1,317 @@
+.marks-entry-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.marks-action-btns {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #1565c0, #1e88e5);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(30, 136, 229, 0.25);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30, 136, 229, 0.4);
+}
+
+.btn-lock {
+  background: linear-gradient(135deg, #1b5e20, #2e7d32);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(46, 125, 50, 0.25);
+}
+
+.btn-lock:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+}
+
+.btn-spinner-dark {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-top-color: currentColor;
+  animation: spin 0.7s linear infinite;
+}
+
+.marks-filters {
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.marks-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 200px;
+}
+
+.marks-status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  align-self: flex-end;
+}
+
+.marks-status-badge.status-draft {
+  background: rgba(156, 163, 175, 0.12);
+  color: var(--status-draft);
+  border: 1px solid rgba(156, 163, 175, 0.2);
+}
+
+.marks-status-badge.status-submitted {
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--status-submitted);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.marks-status-badge.status-locked {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--status-locked);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Grade Distribution */
+.grade-distribution {
+  padding: 20px 24px;
+}
+
+.dist-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.dist-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dist-bar-item {
+  display: grid;
+  grid-template-columns: 30px 1fr 30px;
+  align-items: center;
+  gap: 12px;
+}
+
+.dist-bar-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.dist-bar-track {
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dist-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dist-bar-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+/* Marks Grid */
+.marks-grid-wrapper {
+  overflow: hidden;
+  padding: 0;
+}
+
+.marks-grid-scroll {
+  overflow-x: auto;
+}
+
+.marks-grid-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.marks-grid-table thead tr {
+  border-bottom: 2px solid var(--border-color);
+}
+
+.marks-grid-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--bg-secondary);
+  white-space: nowrap;
+}
+
+.marks-grid-table td {
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+
+.marks-grid-table .row-alt {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+[data-theme="light"] .marks-grid-table .row-alt {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.marks-grid-table tbody tr:hover {
+  background: rgba(0, 151, 167, 0.04);
+}
+
+.marks-grid-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.sticky-col {
+  position: sticky;
+  left: 0;
+  background: var(--bg-secondary);
+  z-index: 10;
+  border-right: 1px solid var(--border-color) !important;
+}
+
+.marks-grid-table .row-alt .sticky-col {
+  background: var(--bg-secondary);
+}
+
+.col-name { min-width: 180px; }
+.col-marks { width: 110px; }
+.col-total { width: 80px; text-align: center; }
+.col-pct { width: 70px; text-align: center; }
+.col-grade { width: 80px; text-align: center; }
+.col-gp { width: 60px; text-align: center; }
+
+.max-marks-hint {
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: none;
+  font-size: 11px;
+}
+
+.marks-input {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+  width: 85px;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.marks-input:focus {
+  border-color: var(--teal-accent);
+  box-shadow: 0 0 0 2px var(--teal-accent-glow);
+  background: var(--bg-secondary);
+}
+
+.marks-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--bg-primary);
+}
+
+.marks-grade-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 28px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.grade-badge-empty {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.marks-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  gap: 16px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.marks-placeholder h3 {
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.marks-placeholder p {
+  font-size: 14px;
+}
+
+.placeholder-icon {
+  font-size: 48px;
+}
+
+.success-toast {
+  background: rgba(0, 200, 83, 0.12);
+  border: 1px solid rgba(0, 200, 83, 0.25);
+  color: var(--grade-o);
+  padding: 12px 20px;
+  border-radius: var(--border-radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

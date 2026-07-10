@@ -1,0 +1,48 @@
+.app-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+  color: var(--text-secondary);
+}
+
+.loader-spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--teal-accent);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  transition: margin-left var(--transition-normal);
+  margin-left: var(--sidebar-width);
+}
+
+.main-layout.sidebar-collapsed {
+  margin-left: 70px;
+}
+
+.content-container {
+  flex: 1;
+  padding: 28px 32px;
+  overflow-y: auto;
+  background-color: var(--bg-primary);
+}

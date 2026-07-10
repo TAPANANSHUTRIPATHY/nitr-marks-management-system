@@ -1,0 +1,242 @@
+.tab-buttons {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 10px 20px;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .tab-btn:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.tab-btn.active {
+  background: var(--teal-accent-glow);
+  color: var(--teal-accent);
+}
+
+.report-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.report-filters {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 20px 24px;
+  flex-wrap: wrap;
+}
+
+.filter-submit-btn {
+  align-self: flex-end;
+}
+
+/* Marksheet Grade Card */
+.marksheet-print-card {
+  padding: 40px;
+  border-radius: var(--border-radius-lg) !important;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  border: 1px solid var(--border-color-hover) !important;
+}
+
+.marksheet-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 20px;
+}
+
+.rkl-shield {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-gold));
+  color: white;
+  font-weight: 800;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  line-height: 1.2;
+}
+
+.marksheet-title-area h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.marksheet-title-area h3 {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+.student-meta-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  font-size: 14px;
+  padding: 16px 20px;
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.meta-row {
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+.meta-row:last-child {
+  margin-bottom: 0;
+}
+
+.meta-row strong {
+  color: var(--text-primary);
+  width: 120px;
+  display: inline-block;
+}
+
+.marksheet-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sgpa-badge {
+  background: linear-gradient(135deg, var(--brand-blue), var(--teal-accent));
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 4px 14px rgba(0, 151, 167, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sgpa-badge span {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* Distribution Report */
+.distribution-report-card {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dist-analytics-body {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .dist-analytics-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dist-bars-vertical {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 240px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.v-bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  width: 40px;
+}
+
+.v-bar-count {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.v-bar-track {
+  width: 12px;
+  background: var(--border-color);
+  border-radius: 6px;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.v-bar-fill {
+  width: 100%;
+  border-radius: 6px;
+  transition: height 0.5s ease;
+}
+
+.v-bar-label {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dist-stats-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dist-stats-side h3 {
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 10px 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+}
+
+.stats-row span {
+  color: var(--text-secondary);
+}
+
+.stats-row strong {
+  color: var(--text-primary);
+}

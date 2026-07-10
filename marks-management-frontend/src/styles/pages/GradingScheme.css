@@ -1,0 +1,72 @@
+.scheme-name-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  color: var(--teal-accent);
+}
+
+.scheme-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.boundary-input {
+  padding: 6px 10px !important;
+  width: 80px !important;
+  min-width: unset !important;
+}
+
+.boundaries-table .grade-badge {
+  font-size: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+}
+
+.total-display {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 10px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+}
+
+.total-display strong {
+  color: var(--teal-accent);
+  font-size: 16px;
+  margin-left: 4px;
+}
+
+.code-tag {
+  background: rgba(0, 151, 167, 0.08);
+  color: var(--teal-accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  border: 1px solid rgba(0, 151, 167, 0.15);
+}
+
+.status-admin {
+  background: rgba(0, 51, 102, 0.15);
+  color: #4a9aed;
+}
+
+.status-faculty {
+  background: rgba(192, 152, 83, 0.15);
+  color: var(--brand-gold);
+}
+
+.status-odd {
+  background: rgba(0, 151, 167, 0.12);
+  color: var(--teal-accent);
+}
+
+.status-even {
+  background: rgba(255, 145, 0, 0.12);
+  color: var(--grade-b);
+}
