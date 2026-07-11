@@ -1,0 +1,6 @@
+{
+  "name": "NIT Rourkela Marks Management System",
+  "description": "A centralized marks management portal for NIT Rourkela, with role-based access for Admins, Faculty, and Students, styled with a modern Bento Grid interface.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
