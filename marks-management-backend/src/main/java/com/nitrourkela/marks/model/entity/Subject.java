@@ -1,10 +1,12 @@
 package com.nitrourkela.marks.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
 @Table(name = "subjects")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

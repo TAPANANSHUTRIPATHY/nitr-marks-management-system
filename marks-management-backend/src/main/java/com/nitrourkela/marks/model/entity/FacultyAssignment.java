@@ -1,11 +1,13 @@
 package com.nitrourkela.marks.model.entity;
 
 import com.nitrourkela.marks.model.enums.AssignmentRole;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
 @Table(name = "faculty_assignments")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class FacultyAssignment {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -13,10 +15,12 @@ public class FacultyAssignment {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "faculty_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "passwordHash"})
     private Faculty faculty;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "semester_subject_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private SemesterSubject semesterSubject;
 
     @Enumerated(EnumType.STRING)

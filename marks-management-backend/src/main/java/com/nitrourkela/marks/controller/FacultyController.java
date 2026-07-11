@@ -3,11 +3,13 @@ package com.nitrourkela.marks.controller;
 import com.nitrourkela.marks.model.dto.FacultyAssignmentRequest;
 import com.nitrourkela.marks.model.entity.Faculty;
 import com.nitrourkela.marks.model.entity.FacultyAssignment;
+import com.nitrourkela.marks.security.UserPrincipal;
 import com.nitrourkela.marks.service.FacultyService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
@@ -66,6 +68,11 @@ public class FacultyController {
     @GetMapping("/{id}/assignments")
     public ResponseEntity<List<FacultyAssignment>> getFacultyAssignments(@PathVariable UUID id) {
         return ResponseEntity.ok(facultyService.getFacultyAssignments(id));
+    }
+
+    @GetMapping("/me/assignments")
+    public ResponseEntity<List<FacultyAssignment>> getMyAssignments(@AuthenticationPrincipal UserPrincipal principal) {
+        return ResponseEntity.ok(facultyService.getFacultyAssignments(principal.getId()));
     }
 
     @GetMapping("/assignments/subject/{semesterSubjectId}")

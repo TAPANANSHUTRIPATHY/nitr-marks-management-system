@@ -1,5 +1,6 @@
 package com.nitrourkela.marks.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -7,6 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "academic_sessions")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class AcademicSession {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

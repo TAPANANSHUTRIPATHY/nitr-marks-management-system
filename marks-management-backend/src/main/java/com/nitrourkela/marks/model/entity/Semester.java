@@ -10,6 +10,7 @@ import java.util.UUID;
 @Table(name = "semesters", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"session_id", "number"})
 })
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Semester {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

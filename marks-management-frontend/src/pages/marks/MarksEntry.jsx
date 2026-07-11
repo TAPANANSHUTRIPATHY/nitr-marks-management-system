@@ -4,6 +4,8 @@ import { getSemesters } from '../../api/semesterApi';
 import { getSubjectsForSemester } from '../../api/semesterApi';
 import { getMarks, batchSaveMarks, submitMarks, lockMarks } from '../../api/marksApi';
 import { calculateGrade, getGradeColor } from '../../utils/grading';
+import { useAuth } from '../../context/AuthContext';
+import { getMyAssignments } from '../../api/facultyApi';
 import '../../styles/pages/MarksEntry.css';
 import '../../styles/pages/AdminPage.css';
 
@@ -21,6 +23,8 @@ const GradeBadge = ({ grade }) => {
 };
 
 const MarksEntry = () => {
+  const { isAdmin } = useAuth();
+  const [assignments, setAssignments] = useState([]);
   const [semesters, setSemesters] = useState([]);
   const [semesterSubjects, setSemesterSubjects] = useState([]);
   const [students, setStudents] = useState([]);
@@ -36,8 +40,35 @@ const MarksEntry = () => {
   const inputRefs = useRef({});
 
   useEffect(() => {
-    getSemesters().then(r => setSemesters(r.data)).catch(() => {});
-  }, []);
+    if (isAdmin()) {
+      getSemesters().then(r => setSemesters(r.data)).catch(() => {});
+    } else {
+      getMyAssignments().then(r => {
+        const assigns = r.data || [];
+        setAssignments(assigns);
+        
+        // Extract unique semesters
+        const uniqueSems = [];
+        const semIds = new Set();
+        assigns.forEach(assign => {
+          const ss = assign.semesterSubject;
+          if (ss && ss.semesterId && !semIds.has(ss.semesterId)) {
+            semIds.add(ss.semesterId);
+            uniqueSems.push({
+              id: ss.semesterId,
+              number: ss.semesterNumber,
+              type: ss.semesterType
+            });
+          }
+        });
+        // Sort semesters by number
+        uniqueSems.sort((a, b) => a.number - b.number);
+        setSemesters(uniqueSems);
+      }).catch((err) => {
+        setError(err.response?.data?.message || 'Failed to load assignments');
+      });
+    }
+  }, [isAdmin]);
 
   const loadSubjects = async (semId) => {
     setSelectedSemester(semId);
@@ -45,11 +76,23 @@ const MarksEntry = () => {
     setStudents([]);
     setLocalMarks({});
     if (!semId) return;
-    try {
-      const res = await getSubjectsForSemester(semId);
-      setSemesterSubjects(res.data);
-    } catch {
-      setSemesterSubjects([]);
+
+    if (isAdmin()) {
+      try {
+        const res = await getSubjectsForSemester(semId);
+        setSemesterSubjects(res.data);
+      } catch {
+        setSemesterSubjects([]);
+      }
+    } else {
+      // Filter subjects for the selected semester from the teacher's assignments
+      const mappedSubjects = assignments
+        .filter(assign => assign.semesterSubject?.semesterId === semId)
+        .map(assign => ({
+          id: assign.semesterSubject.id,
+          subject: assign.semesterSubject.subject,
+        }));
+      setSemesterSubjects(mappedSubjects);
     }
   };
 
@@ -196,6 +239,23 @@ const MarksEntry = () => {
 
   const gradeStats = selectedSemSubject ? getGradeStats() : null;
   const totalStudents = students.length;
+  const currentAssignment = assignments.find(a => {
+    const match = a.semesterSubject?.id === selectedSemSubject?.id;
+    return match;
+  });
+  const isCoordinator = isAdmin() || (currentAssignment && currentAssignment.assignmentRole === 'COORDINATOR');
+
+  console.log('MarksEntry Debug:', {
+    isAdmin: isAdmin(),
+    selectedSemSubjectId: selectedSemSubject?.id,
+    assignments: assignments.map(a => ({
+      assignmentId: a.id,
+      semSubId: a.semesterSubject?.id,
+      role: a.assignmentRole
+    })),
+    currentAssignment,
+    isCoordinator
+  });
 
   return (
     <div className="marks-entry-page">
@@ -210,12 +270,12 @@ const MarksEntry = () => {
               {saving ? <span className="btn-spinner-dark"></span> : <Save size={17} />}
               Save Draft
             </button>
-            {status === 'DRAFT' && (
+            {status === 'DRAFT' && isCoordinator && (
               <button className="btn btn-submit" onClick={handleSubmit}>
                 <Send size={17} /> Submit
               </button>
             )}
-            {status === 'SUBMITTED' && (
+            {status === 'SUBMITTED' && isCoordinator && (
               <button className="btn btn-lock" onClick={handleLock}>
                 <Lock size={17} /> Lock Marks
               </button>

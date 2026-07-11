@@ -22,13 +22,13 @@ public class MarksController {
     }
 
     @GetMapping("/{semesterSubjectId}")
-    @PreAuthorize("@rbacService.hasAccessToSubject(#semesterSubjectId)")
+    @PreAuthorize("@rbacService.hasAccessToSubject(#a0)")
     public ResponseEntity<List<StudentMarksDTO>> getMarksForSubject(@PathVariable UUID semesterSubjectId) {
         return ResponseEntity.ok(marksService.getMarksForSubject(semesterSubjectId));
     }
 
     @PutMapping("/{semesterSubjectId}/batch")
-    @PreAuthorize("@rbacService.hasAccessToSubject(#semesterSubjectId)")
+    @PreAuthorize("@rbacService.hasAccessToSubject(#a0)")
     public ResponseEntity<List<Marks>> saveBatchMarks(
             @PathVariable UUID semesterSubjectId,
             @RequestBody List<MarksRequest> requests) {
@@ -36,14 +36,14 @@ public class MarksController {
     }
 
     @PostMapping("/{semesterSubjectId}/submit")
-    @PreAuthorize("@rbacService.isCoordinator(#semesterSubjectId)")
+    @PreAuthorize("@rbacService.isCoordinator(#a0)")
     public ResponseEntity<Map<String, String>> submitMarks(@PathVariable UUID semesterSubjectId) {
         marksService.submitMarks(semesterSubjectId);
         return ResponseEntity.ok(Map.of("message", "Marks submitted successfully"));
     }
 
     @PostMapping("/{semesterSubjectId}/lock")
-    @PreAuthorize("@rbacService.isCoordinator(#semesterSubjectId)")
+    @PreAuthorize("@rbacService.isCoordinator(#a0)")
     public ResponseEntity<Map<String, String>> lockMarks(@PathVariable UUID semesterSubjectId) {
         marksService.lockMarks(semesterSubjectId);
         return ResponseEntity.ok(Map.of("message", "Marks locked successfully"));

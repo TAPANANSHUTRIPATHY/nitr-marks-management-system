@@ -10,5 +10,6 @@ export const importFacultyCSV = (formData) => axiosClient.post('/api/faculty/imp
 });
 export const assignFaculty = (data) => axiosClient.post('/api/faculty/assign', data);
 export const getFacultyAssignments = (id) => axiosClient.get(`/api/faculty/${id}/assignments`);
+export const getMyAssignments = () => axiosClient.get('/api/faculty/me/assignments');
 export const getAssignmentsBySubject = (semesterSubjectId) => axiosClient.get(`/api/faculty/assignments/subject/${semesterSubjectId}`);
 export const removeAssignment = (assignmentId) => axiosClient.delete(`/api/faculty/assignments/${assignmentId}`);

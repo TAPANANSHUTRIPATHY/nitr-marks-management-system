@@ -2,6 +2,7 @@ package com.nitrourkela.marks.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.nitrourkela.marks.model.enums.GlobalRole;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -9,6 +10,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "faculties")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

@@ -2,6 +2,7 @@ package com.nitrourkela.marks.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.util.UUID;
 
@@ -9,6 +10,7 @@ import java.util.UUID;
 @Table(name = "semester_subjects", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"semester_id", "subject_id"})
 })
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class SemesterSubject {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -41,4 +43,19 @@ public class SemesterSubject {
 
     public Subject getSubject() { return subject; }
     public void setSubject(Subject subject) { this.subject = subject; }
+
+    @JsonProperty("semesterId")
+    public UUID getSemesterId() {
+        return semester != null ? semester.getId() : null;
+    }
+
+    @JsonProperty("semesterNumber")
+    public Integer getSemesterNumber() {
+        return semester != null ? semester.getNumber() : null;
+    }
+
+    @JsonProperty("semesterType")
+    public String getSemesterType() {
+        return semester != null && semester.getType() != null ? semester.getType().name() : null;
+    }
 }
