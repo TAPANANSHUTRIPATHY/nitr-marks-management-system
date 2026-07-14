@@ -15,10 +15,15 @@ A centralized, role‑based marks management system for NIT Rourkela. It streaml
 ---
 
 ## 🛠️ Tech Stack
-- **Backend**: Node.js with Express (or Django/Flask – adapt as needed)
-- **Database**: PostgreSQL (or MySQL) for relational data integrity
-- **Frontend**: HTML5, CSS3 (with a premium design), JavaScript (ES6+)
-- **Version Control**: Git
+
+The application is built using modern, production‑grade technologies:
+
+- **Backend**: Node.js (v20) with Express.js – provides a lightweight REST API layer.
+- **Database**: PostgreSQL (v15) – reliable relational storage with ACID guarantees.
+- **Frontend**: HTML5, CSS3 (leveraging a premium glassmorphism design), and vanilla JavaScript (ES2022) – no heavy frameworks required.
+- **Version Control**: Git – hosted on GitHub for collaborative development.
+
+---
 
 ---
 
@@ -30,15 +35,31 @@ A centralized, role‑based marks management system for NIT Rourkela. It streaml
 - **Student**: user_name=abhishek@nitrkl.ac.in ,password=password123 ,View personal marks and academic progress.
 
 ---
-<img src="images/login.png" alt="Dashboard screenshot" width="800"/>
-<img src="images/admin.png" alt="Dashboard screenshot" width="800"/>
-<img src="images/faculty.png" alt="Dashboard screenshot" width="800"/>
-<img src="images/student.png" alt="Dashboard screenshot" width="800"/>
-<img src="images/Screenshot 2026-07-14 191531.png" alt="Dashboard screenshot" width="800"/>
-<img src="images/Screenshot 2026-07-14 191633.png" alt="Dashboard screenshot" width="800"/>
-<img src="images/Screenshot 2026-07-14 191900.png" alt="Dashboard screenshot" width="800"/>
-<img src="images/Screenshot 2026-07-14 191932.png" alt="Dashboard screenshot" width="800"/>
-<img src="images/Screenshot 2026-07-14 192134.png" alt="Dashboard screenshot" width="800"/>
+
+### 📸 Screenshots
+
+**Login Page**  
+<img src="images/login.png" alt="Login page" width="800"/>  
+*Figure 1: Login screen where users can enter credentials.*
+
+**Admin Dashboard**  
+<img src="images/admin.png" alt="Admin dashboard" width="800"/>  
+*Figure 2: Admin view with management capabilities.*
+
+**Faculty Dashboard**  
+<img src="images/faculty.png" alt="Faculty dashboard" width="800"/>  
+*Figure 3: Faculty interface for entering assessment records.*
+
+**Student Dashboard**  
+<img src="images/student.png" alt="Student dashboard" width="800"/>  
+*Figure 4: Student view of personal marks and progress.*
+
+**Additional Screens**  
+<img src="images/Screenshot 2026-07-14 191531.png" alt="Screen 1" width="800"/>  
+<img src="images/Screenshot 2026-07-14 191633.png" alt="Screen 2" width="800"/>  
+<img src="images/Screenshot 2026-07-14 191900.png" alt="Screen 3" width="800"/>  
+<img src="images/Screenshot 2026-07-14 191932.png" alt="Screen 4" width="800"/>  
+<img src="images/Screenshot 2026-07-14 192134.png" alt="Screen 5" width="800"/>
 
 
 
