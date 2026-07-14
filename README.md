@@ -22,30 +22,7 @@ A centralized, role‑based marks management system for NIT Rourkela. It streaml
 
 ---
 
-## 📦 Installation
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/nitr-marks-management-system.git
-   cd nitr-marks-management-system
-   ```
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-3. **Configure the database**
-   - Create a PostgreSQL database.
-   - Update the connection string in `config/.env`.
-4. **Run migrations** (if applicable)
-   ```bash
-   npm run migrate
-   ```
-5. **Start the application**
-   ```bash
-   npm start
-   ```
-   The app will be available at `http://localhost:3000`.
 
----
 
 ## 🚀 Usage
 - **Admin**: Access the dashboard to manage users, subjects, and sessions.
