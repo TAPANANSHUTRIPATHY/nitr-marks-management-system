@@ -38,9 +38,7 @@ const Login = () => {
       <div className="login-container">
         <div className="login-card glass-card">
           <div className="login-logo">
-            <div className="login-logo-badge">
-              <Shield size={24} />
-            </div>
+            <img src="/nit-logo.jpg" alt="NIT Logo" className="login-logo-image" />
             <div className="login-logo-text">
               <h1>NIT Rourkela</h1>
               <span>Marks Management Portal</span>

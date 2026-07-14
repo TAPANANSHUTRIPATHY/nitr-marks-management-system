@@ -6,13 +6,22 @@ A robust, secure, role-based centralized Marks Management System designed for Na
 
 ## 🌟 Key Features
 
+<div align="center">
+  <img src="./assets/analytics.png" alt="MMS Dashboard" width="800">
+  <p><i>Interactive Analytics Dashboard</i></p>
+</div>
+
 ### 1. Administrative Management
+<img src="./assets/admin-panel.png" alt="Admin Panel" width="600">
+
 - **Academic Sessions**: Set up and manage academic sessions (e.g., Autumn 2024, Spring 2025).
-- **Semester Structure**: Organize semesters and dynamically map subjects to semesters.
+- **Semester Structure (Subject Mapping)**: Organize semesters and dynamically map subjects to semesters.
+  <br><img src="./assets/subject-mapping.png" alt="Subject Mapping" width="600">
 - **Subject Registry**: Register subjects with characteristics like type (Theory, Practical) and credits.
 - **Student Enrollment**: Efficiently manage and query student cohorts, mapping them to academic sessions.
 
-### 2. Role-Based Access Control (RBAC) & Security
+### 2. Role-Based Access Control (RBAC) & Security (Faculty Assignment)
+<img src="./assets/faculty-assignment.png" alt="Faculty Assignment" width="600">
 - **Global Roles**:
   - `ADMIN`: Full administrative access to system configurations, session data, user mapping, and audit logs.
   - `FACULTY`: Restructured access based on subject allocation.
@@ -22,6 +31,8 @@ A robust, secure, role-based centralized Marks Management System designed for Na
 - **Token-based Security**: Stateless JWT-based session management and Spring Security filters.
 
 ### 3. Marks & Grading Lifecycle
+<img src="./assets/marks-entry.png" alt="Marks Entry Table" width="600">
+
 - **Unified Marks Entry**: Record details for Pre Mid-Sem, Mid-Sem, Post Mid-Sem, and Practical evaluations.
 - **Batch Processing**: Spreadsheet-like interface to save marks in bulk.
 - **Submission & Locking**: Multi-step marks approval. Sub-coordinators save drafts, coordinators submit, and locks are applied to final records to ensure auditability.
@@ -127,6 +138,11 @@ marks-management-system/
    npm run dev
    ```
    The frontend will be active at `http://localhost:5173`.
+
+### 🔑 Admin Access
+Once both the backend and frontend are running, you can access the admin portal using the following default credentials:
+- **Email / Username**: `admin@nitrourkela.ac.in`
+- **Password**: `admin123`
 
 ---
 

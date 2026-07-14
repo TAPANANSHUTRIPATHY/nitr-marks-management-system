@@ -32,15 +32,10 @@
   white-space: nowrap;
 }
 
-.logo-badge {
-  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--teal-accent) 100%);
-  color: white;
-  font-weight: 800;
-  font-size: 14px;
-  padding: 6px 10px;
-  border-radius: var(--border-radius-sm);
-  letter-spacing: 0.05em;
-  box-shadow: 0 4px 12px rgba(0, 151, 167, 0.25);
+.logo-image {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
 }
 
 .logo-text {

@@ -34,8 +34,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     <aside className={`sidebar ${isOpen ? 'open' : 'collapsed'}`}>
       <div className="sidebar-header">
         <div className="logo-container">
-          <div className="logo-badge">NIT</div>
-          <span className="logo-text">Rourkela</span>
+          <img src="/nit-logo.jpg" alt="NIT Logo" className="logo-image" />
+          <span className="logo-text">NIT Rourkela</span>
         </div>
       </div>
 

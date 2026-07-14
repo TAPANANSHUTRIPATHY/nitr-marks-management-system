@@ -78,17 +78,10 @@
   margin-bottom: 40px;
 }
 
-.login-logo-badge {
-  width: 52px;
+.login-logo-image {
   height: 52px;
-  background: linear-gradient(135deg, var(--brand-blue), var(--teal-accent));
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  box-shadow: 0 8px 24px rgba(0, 151, 167, 0.3);
-  flex-shrink: 0;
+  width: auto;
+  object-fit: contain;
 }
 
 .login-logo-text h1 {
