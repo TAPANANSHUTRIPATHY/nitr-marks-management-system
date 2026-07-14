@@ -30,6 +30,10 @@ A centralized, role‑based marks management system for NIT Rourkela. It streaml
 - **Student**: View personal marks and academic progress.
 
 ---
+<img src="login.png" alt="Dashboard screenshot" width="800"/>
+<img src="admin.png" alt="Dashboard screenshot" width="800"/>
+<img src="faculty.png" alt="Dashboard screenshot" width="800"/>
+<img src="student.png" alt="Dashboard screenshot" width="800"/>
 
 
 
