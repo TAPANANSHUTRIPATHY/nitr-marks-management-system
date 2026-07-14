@@ -27,7 +27,6 @@ The **NITR Marks Management System** is a web‑based application that centralis
 
 ## 🏗️ Architecture
 
-```mermaid
 graph LR
     A[Frontend (HTML/CSS/JS)] --> B[Backend API (Node.js/Express)]
     B --> C[PostgreSQL DB]
