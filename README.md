@@ -27,7 +27,7 @@ A centralized, role‑based marks management system for NIT Rourkela. It streaml
 ## 🚀 Usage
 - **Admin**: user_name=admin@nitrkl.ac.in ,password= adminpassword ,Access the dashboard to manage users, subjects, and sessions.
 - **Faculty**: user_name=bdsahoo@nitrkl.ac.in ,password=password123 ,Enter and edit assessment records for assigned classes.
-- **Student**: user_name=abhishek2nitrkl.ac.in ,password=password123 ,View personal marks and academic progress.
+- **Student**: user_name=abhishek@nitrkl.ac.in ,password=password123 ,View personal marks and academic progress.
 
 ---
 <img src="images/login.png" alt="Dashboard screenshot" width="800"/>
