@@ -34,7 +34,11 @@ A centralized, role‑based marks management system for NIT Rourkela. It streaml
 <img src="images/admin.png" alt="Dashboard screenshot" width="800"/>
 <img src="images/faculty.png" alt="Dashboard screenshot" width="800"/>
 <img src="images/student.png" alt="Dashboard screenshot" width="800"/>
-
+<img src="images/Screenshot 2026-07-14 191531.png" alt="Dashboard screenshot" width="800"/>
+<img src="images/Screenshot 2026-07-14 191633.png" alt="Dashboard screenshot" width="800"/>
+<img src="images/Screenshot 2026-07-14 191900.png" alt="Dashboard screenshot" width="800"/>
+<img src="images/Screenshot 2026-07-14 191932.png" alt="Dashboard screenshot" width="800"/>
+<img src="images/Screenshot 2026-07-14 192134.png" alt="Dashboard screenshot" width="800"/>
 
 
 
