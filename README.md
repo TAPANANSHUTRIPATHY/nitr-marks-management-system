@@ -14,6 +14,29 @@ A centralized, role‑based marks management system for NIT Rourkela. It streaml
 
 ---
 
+## 📖 Project Overview
+
+The **NITR Marks Management System** is a web‑based application that centralises academic records for NIT Rourkela. It provides role‑based interfaces for administrators, faculty members, and students, enabling:
+
+- Secure management of student data, subjects, and academic sessions.
+- Creation, editing, and retrieval of pre‑mid and post‑mid assessment marks.
+- Bulk import/export of records via CSV for easy reporting.
+- Responsive, glass‑morphism UI with modern JavaScript.
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+graph LR
+    A[Frontend (HTML/CSS/JS)] --> B[Backend API (Node.js/Express)]
+    B --> C[PostgreSQL DB]
+    B --> D[Auth Service]
+    D --> A
+```
+
+---
+
 ## 🛠️ Tech Stack
 
 The application is built using modern, production‑grade technologies:
