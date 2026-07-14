@@ -25,35 +25,41 @@ This system provides a digital panel for managing student evaluation scores (Pre
 
 ## 📷 System Screenshots
 
-### 1. Authentication & Dashboard
-| Login Portal | System Admin Dashboard |
-| :---: | :---: |
-| ![Login Portal](screenshots/01_login.png) | ![Admin Dashboard](screenshots/02_admin_dashboard.png) |
+### 1. ERP Login Portal
+![Login Portal](screenshots/01_login.png)
 
-### 2. Academic Configurations
-| Academic Sessions | Semester Management |
-| :---: | :---: |
-| ![Academic Sessions](screenshots/03_session_management.png) | ![Semester Management](screenshots/04_semester_management.png) |
+### 2. System Admin Dashboard
+![Admin Dashboard](screenshots/02_admin_dashboard.png)
 
-### 3. Registry & Catalogs
-| Subject Catalog | Faculty Roster |
-| :---: | :---: |
-| ![Subject Catalog](screenshots/05_subject_management.png) | ![Faculty Roster](screenshots/06_faculty_management.png) |
+### 3. Academic Sessions Management
+![Academic Sessions](screenshots/03_session_management.png)
 
-### 4. Student & Marks Management
-| Student Directory | Marks Logs |
-| :---: | :---: |
-| ![Student Directory](screenshots/07_student_management.png) | ![Marks Logs](screenshots/08_marks_management.png) |
+### 4. Semester Stage Configurations
+![Semester Management](screenshots/04_semester_management.png)
 
-### 5. Performance Reports & Analytics
-| Analytics & Transcripts | Subject-wise SVG Bar Chart |
-| :---: | :---: |
-| ![Performance Analytics](screenshots/09_reports.png) | ![Subject Grade Distribution Chart](screenshots/10_reports_grade_chart.png) |
+### 5. Subject Catalog & Faculty Coordinates Allocation
+![Subject Catalog](screenshots/05_subject_management.png)
 
-### 6. Profile & Coordinator Marks Entry
-| Profile Settings | Coordinator Marks Entry Sheet |
-| :---: | :---: |
-| ![Profile Settings](screenshots/11_profile.png) | ![Coordinator Marks Entry](screenshots/12_coordinator_marks_entry.png) |
+### 6. Faculty Roster Directory
+![Faculty Roster](screenshots/06_faculty_management.png)
+
+### 7. Student Registry with Advanced Filters
+![Student Directory](screenshots/07_student_management.png)
+
+### 8. Marks Management Log History
+![Marks Logs](screenshots/08_marks_management.png)
+
+### 9. Student-wise Transcript Reports & Weighted SGPA Calculator
+![Performance Analytics](screenshots/09_reports.png)
+
+### 10. Subject-wise Grade Distribution Chart (Interactive SVG)
+![Subject Grade Distribution Chart](screenshots/10_reports_grade_chart.png)
+
+### 11. User Profile & Password Configuration Panel
+![Profile Settings](screenshots/11_profile.png)
+
+### 12. Course Coordinator restricted Marks Entry Sheet
+![Coordinator Marks Entry](screenshots/12_coordinator_marks_entry.png)
 
 ---
 
